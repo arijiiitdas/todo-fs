@@ -112,13 +112,13 @@ export const updateTodo = async (req, res) => {
 export const findTodo = async (req, res) => {
     try {
         const todoId = req.params.id
-        const data = await todoSchema.findById({
+        const data = await todoSchema.findOne({
             _id: todoId
         })
-        return res.status(201).json({
+        return res.status(200).json({
             success: true,
             message: "Todo Found!",
-            data
+            data:data
         }
 
         )
